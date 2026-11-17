@@ -35,6 +35,7 @@ Este projeto tem como objetivo aplicar, de forma prática, os conhecimentos adqu
 - [API Endpoints](#api-endpoints)
 - [Banco de Dados](#banco-de-dados)
 - [Exemplos de Uso](#exemplos-de-uso)
+- [Vídeo Demonstrativo](#Vídeo-Demonstrativo)
 - [Roadmap](#roadmap)
 - [Contribuição](#como-contribuir)
 - [Licença](#licença)
@@ -654,6 +655,8 @@ curl -X POST http://localhost:5030/login \
 ```
 
 ---
+## 🎥 Video Demonstrativo
+[![Assista ao vídeo](https://img.youtube.com/vi/YZhSO3G_0Nw/maxresdefault.jpg)](https://www.youtube.com/watch?v=YZhSO3G_0Nw)
 
 ## 🗺️ Roadmap
 
