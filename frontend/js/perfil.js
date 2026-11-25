@@ -1,8 +1,9 @@
 /* ============================================================
    perfil.js — Página "Minha Conta"
-   - Nome: salvo na sessão (aparece em todas as páginas) e,
-           opcionalmente, na API (veja o ponto marcado abaixo).
-   - E-mail e senha: apenas validação visual, sem persistência real.
+   - Nome e E-mail: atualizados via API REST (PUT /usuarios/{id})
+     e sincronizados com a sessão do usuário.
+   - Alteração de Senha: persistida com validação de senha atual
+     e criptografia SHA-256 (PUT /usuarios/{id}/senha).
    ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {

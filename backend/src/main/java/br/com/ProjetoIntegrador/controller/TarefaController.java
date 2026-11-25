@@ -51,6 +51,32 @@ public class TarefaController {
         repository.deleteById(id);
     }
 
+    @GetMapping("/evidencias/{id}")
+    public ResponseEntity<?> buscarEvidencia(@PathVariable Long id) {
+        Evidencia evidencia = evidenciaRepository.findById(id).orElse(null);
+        if (evidencia == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        try {
+            Path path = Paths.get(evidencia.getCaminhoArquivo());
+            if (!Files.exists(path)) {
+                return ResponseEntity.notFound().build();
+            }
+
+            byte[] bytes = Files.readAllBytes(path);
+            String tipo = evidencia.getTipo() != null && !evidencia.getTipo().isBlank() 
+                    ? evidencia.getTipo() 
+                    : "image/jpeg";
+
+            return ResponseEntity.ok()
+                    .header(org.springframework.http.HttpHeaders.CONTENT_TYPE, tipo)
+                    .body(bytes);
+        } catch (IOException e) {
+            return ResponseEntity.status(500).body("Erro ao ler arquivo: " + e.getMessage());
+        }
+    }
+
     @PostMapping("/{id}/evidencias")
     public ResponseEntity<?> uploadEvidencia(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
         Tarefa tarefa = repository.findById(id).orElse(null);

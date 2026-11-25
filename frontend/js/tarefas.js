@@ -304,6 +304,26 @@ async function expandirTarefa(id) {
         document.body.appendChild(modal);
     }
 
+    let evidenciasHtml = "";
+    if (tarefa.evidencias && tarefa.evidencias.length > 0) {
+        evidenciasHtml = `
+            <div class="evidencias-galeria" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;">
+                ${tarefa.evidencias.map(ev => `
+                    <div style="background:#181818;border:1px solid #333;border-radius:8px;padding:8px;text-align:center;max-width:140px;">
+                        <a href="${BASE_URL}/tarefas/evidencias/${ev.id}" target="_blank" title="Clique para ampliar">
+                            <img src="${BASE_URL}/tarefas/evidencias/${ev.id}" alt="${ev.nomeArquivo || 'Evidência'}" style="width:120px;height:90px;object-fit:cover;border-radius:6px;border:1px solid #444;" onerror="this.onerror=null;this.src='../assets/prints/tabela-tarefas.png';"/>
+                        </a>
+                        <div style="font-size:0.75rem;color:#c9a050;margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${ev.nomeArquivo || 'Foto'}">
+                            ${ev.nomeArquivo || 'Evidência'}
+                        </div>
+                    </div>
+                `).join("")}
+            </div>
+        `;
+    } else {
+        evidenciasHtml = `<p style="color:#888;font-style:italic;margin-top:8px;">Nenhuma evidência anexada</p>`;
+    }
+
     modal.innerHTML = `
         <div class="modal">
             <div class="modal-header">
@@ -318,6 +338,11 @@ async function expandirTarefa(id) {
                 <p><strong>Responsável:</strong> ${tarefa.responsavel || "—"}</p>
                 <p><strong>Prazo:</strong> ${formatarData(tarefa.prazo)}</p>
                 <p><strong>Obra:</strong> ${tarefa.obra?.nome || "—"}</p>
+
+                <div style="margin-top:18px;border-top:1px solid #2c2c2c;padding-top:14px;">
+                    <strong>📸 Evidências Fotográficas:</strong>
+                    ${evidenciasHtml}
+                </div>
             </div>
         </div>
     `;

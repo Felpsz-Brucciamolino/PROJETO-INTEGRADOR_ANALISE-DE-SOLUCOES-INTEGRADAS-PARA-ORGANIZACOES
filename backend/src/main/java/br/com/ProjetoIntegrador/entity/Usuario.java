@@ -1,6 +1,7 @@
 package br.com.ProjetoIntegrador.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -21,6 +22,7 @@ public class Usuario {
     @Column(name = "senha")
     private String senhaHash;
 
+    @JsonProperty("cargo")
     @Column(name = "cargo")
     private String perfil;
 

@@ -26,7 +26,7 @@ public class Tarefa {
     private Obra obra;
 
     @JsonIgnoreProperties("tarefa")
-    @OneToMany(mappedBy = "tarefa", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "tarefa", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private java.util.List<Evidencia> evidencias;
 
     // GETTERS E SETTERS
