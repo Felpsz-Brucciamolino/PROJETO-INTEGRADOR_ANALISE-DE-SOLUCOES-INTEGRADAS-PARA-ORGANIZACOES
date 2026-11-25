@@ -353,9 +353,9 @@ Apresentação funcional e demonstração técnica do MVP (2 a 3 minutos):
 
 <div align="center">
 
-[![Vídeo Demonstrativo GerObras](https://img.youtube.com/vi/EoTfT0CCYJY/maxresdefault.jpg)](https://www.youtube.com/watch?v=EoTfT0CCYJY)
+[![Vídeo Demonstrativo GerObras](https://img.youtube.com/vi/y7lllgBrlh8/maxresdefault.jpg)](https://www.youtube.com/watch?v=y7lllgBrlh8)
 
-🔗 **[Clique aqui para assistir ao vídeo no YouTube](https://www.youtube.com/watch?v=EoTfT0CCYJY)**
+🔗 **[Clique aqui para assistir ao vídeo no YouTube](https://www.youtube.com/watch?v=y7lllgBrlh8)**
 
 </div>
 
